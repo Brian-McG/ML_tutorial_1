@@ -1,0 +1,7 @@
+Number of examples: 6
+Sunny, Warm, Normal, Weak, Warm, Change, Yes
+Sunny, Warm, Normal, Weak, Warm, Same, Yes
+Sunny, Warm, Normal, Weak, Cool, Same, Yes
+Sunny, Warm, Normal, Weak, Cool, Same, Yes
+Sunny, Warm, Normal, Strong, Cool, Same, Yes
+Sunny, Warm, High, Weak, Cool, Same, Yes
