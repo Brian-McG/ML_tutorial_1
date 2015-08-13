@@ -10,16 +10,16 @@
 #include <random>
 #include "./find_s.h"
 namespace mcgbri004 {
-  std::vector<std::string> FindS::calculate_hypothesis(const std::vector<std::vector<std::string> > & input) {
+  std::vector<std::string> FindS::CalculateHypothesis(const std::vector<std::vector<std::string> > & input) {
     if (input.size() > 0) {
       std::vector<std::string> hypothesis;
       for (unsigned int i = 0; i < number_of_constraints_; ++i) {
-        std::string test = input[0][i];
-        hypothesis.push_back(test);
+        std::string constraint = input[0][i];
+        hypothesis.push_back(constraint);
       }
       for (unsigned int i = 1; i < input.size(); ++i) {
         if (input[i][number_of_constraints_-1] == "Yes") {
-          for (unsigned int g = 0; g < number_of_constraints_-1; ++g) {
+          for (unsigned int g = 0; g < number_of_constraints_ - 1; ++g) {
             if (hypothesis[g] != input[i][g]) {
               hypothesis[g] = "?";
             }
@@ -33,7 +33,7 @@ namespace mcgbri004 {
     return std::vector<std::string>();
   }
 
-  std::vector<std::vector<std::string> > FindS::generate_training_data(const std::vector<std::string> & objective, const std::vector<std::vector<std::string> > & attributes) {
+  std::vector<std::vector<std::string> > FindS::GenerateTrainingData(const std::vector<std::string> & objective, const std::vector<std::vector<std::string> > & attributes) {
     std::vector<std::vector<std::string> > training_data;
     std::vector<std::string> current_hypothesis(objective.size() + 1, "");
     std::random_device seeder;
@@ -48,7 +48,6 @@ namespace mcgbri004 {
           int max = attributes[i].size() - 1;
           std::uniform_int_distribution<int> dist(min, max);
           int random_value = dist(engine);
-          std::cout << random_value << std::endl;
           current_hypothesis[i] = attributes[i][random_value];
         }
       }
@@ -61,10 +60,9 @@ namespace mcgbri004 {
         }
         ++i;
       }
-      std::cout << std::endl;
       if (!already_generated) {
         training_data.push_back(current_hypothesis);
-        current_hypothesis = calculate_hypothesis(training_data);
+        current_hypothesis = CalculateHypothesis(training_data);
       }
     }
     return training_data;

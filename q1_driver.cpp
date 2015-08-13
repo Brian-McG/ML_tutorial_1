@@ -8,8 +8,8 @@ int main(int argc, const char * argv[]) {
   std::vector<std::string> objective = {"Sunny", "Warm", "?", "?", "?", "?"};
   mcgbri004::FindS find(objective.size() + 1);
   std::vector<std::vector<std::string> > attributes = {{"Sunny", "Cloudy", "Rainy"}, {"Warm", "Cold"}, {"Normal", "High"}, {"Strong", "Weak"}, {"Warm", "Cool"}, {"Same", "Change"}};
-  std::vector<std::vector<std::string> > training_data = find.generate_training_data(objective, attributes);
-  std::cout << training_data.size() << std::endl;
+  std::vector<std::vector<std::string> > training_data = find.GenerateTrainingData(objective, attributes);
+  std::cout << "Number of training examples: " << training_data.size() << std::endl;
   for(unsigned int i = 0; i < training_data.size(); ++i) {
     for(unsigned int g = 0; g < training_data[i].size(); ++g) {
       if(g + 1 < training_data[i].size()) {

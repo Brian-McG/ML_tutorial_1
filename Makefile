@@ -18,4 +18,4 @@ find_s.o: find_s.cpp find_s.h
 	$(CC) -c -o $@ $< $(EXT)
 
 clean:
-	rm -f *.o *.so *.exe *.raw *.dat fleetState testDriver unit_tests/*.o
+	rm -f *.o *.so *.exe *.raw *.dat q1_driver find_s_driver unit_tests/*.o

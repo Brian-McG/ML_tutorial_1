@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
   std::string training_example_4[length] = {"Sunny", "Warm", "High", "Strong", "Cool", "Change", "Yes"};
   input.push_back(std::vector<std::string>(std::begin(training_example_4), std::end(training_example_4)));
   mcgbri004::FindS find_s(length);
-  std::vector<std::string> hypothesis = find_s.calculate_hypothesis(input);
+  std::vector<std::string> hypothesis = find_s.CalculateHypothesis(input);
   std::cout << "< ";
   for(unsigned int i = 0; i < hypothesis.size() - 1; ++i) {
     if(i + 1 < hypothesis.size() - 1) {
